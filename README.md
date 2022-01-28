@@ -35,13 +35,17 @@ Diferencial: NestJS
 ## Build e Execução
 
 Para instalar as dependencias:
-yarn
+
+    yarn
 
 Para iniciar o backend em modo produção:
-yarn start:dev
 
-Para criar uma build otimizada
-yarn build
+    yarn start:dev
+
+Para criar uma build otimizada:
+
+    yarn build
 
 Para executar o backend da build:
-yarn start
+
+    yarn start
