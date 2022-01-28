@@ -25,9 +25,23 @@ Diferencial: NestJS
 - ObterProdutoComMaiorEstoque
 - ObterProdutosSemEstoque(realizar uma busca para retornar os produtos com estoque menor que 5)
 
-## Implementation:
+## Implementation
 
 - NestJS
 - GralphQL
 - TypeORM
 - Sqlite
+
+## Build e Execução
+
+Para instalar as dependencias:
+yarn
+
+Para iniciar o backend em modo produção:
+yarn start:dev
+
+Para criar uma build otimizada
+yarn build
+
+Para executar o backend da build:
+yarn start
