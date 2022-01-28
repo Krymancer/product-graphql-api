@@ -47,10 +47,8 @@ export class ProductService {
   }
 
   async noQuantity() {
-    const products = await this.productRepository.find({
+    return await this.productRepository.find({
       where: { quantity: LessThan(5) },
     });
-    console.log(products);
-    return products;
   }
 }
