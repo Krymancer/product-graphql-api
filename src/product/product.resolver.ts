@@ -9,24 +9,24 @@ export class ProductResolver {
   constructor(private readonly productService: ProductService) {}
 
   @Mutation(() => Product)
-  createProduct(
+  AdicionarProduto(
     @Args('createProductInput') createProductInput: CreateProductInput,
   ) {
     return this.productService.create(createProductInput);
   }
 
-  @Query(() => [Product], { name: 'product' })
-  findAll() {
+  @Query(() => [Product])
+  BuscarProdutos() {
     return this.productService.findAll();
   }
 
-  @Query(() => Product, { name: 'product' })
-  findOne(@Args('id', { type: () => Int }) id: number) {
+  @Query(() => Product)
+  BuscarProduto(@Args('id', { type: () => Int }) id: number) {
     return this.productService.findOne(id);
   }
 
   @Mutation(() => Product)
-  updateProduct(
+  AlterarProduto(
     @Args('updateProductInput') updateProductInput: UpdateProductInput,
   ) {
     return this.productService.update(
@@ -36,7 +36,27 @@ export class ProductResolver {
   }
 
   @Mutation(() => Product)
-  removeProduct(@Args('id', { type: () => Int }) id: number) {
+  DeletarProduto(@Args('id', { type: () => Int }) id: number) {
     return this.productService.remove(id);
+  }
+
+  @Query(() => Int)
+  ObterQuantidadeProdutos() {
+    return this.productService.quantity();
+  }
+
+  @Query(() => Product)
+  ObterProdutoComMenorEstoque() {
+    return this.productService.leastQuantity();
+  }
+
+  @Query(() => Product)
+  ObterProdutoComMaiorEstoque() {
+    return this.productService.mostQuantity();
+  }
+
+  @Query(() => [Product])
+  ObterProdutosSemEstoque() {
+    return this.productService.noQuantity();
   }
 }
